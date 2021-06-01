@@ -1,17 +1,17 @@
 clc
 clear
-%% ÎÄ¼şÂ·¾¶¼°¶ÁÈ¡ÎÄ¼ş
-path = 'F:\shuidao\rice_zhong.vcf';
-lossRate = 0; % È±Ê§ÂÊ
-abRate = 1;   % ab±ÈÖµ
-%% ¶ÁÈ¡ÎÄ¼şµÄ±äÁ¿´æ´¢
+%% File path and read file
+path = 'F:\sd\sd.vcf';
+lossRate = 0; % Missing rate
+abRate = 1;   % Ab ratio
+%% Read the variable store for the file
 data=fopen(path);
 k = 0;
 SNP = [];
 snp = [];
 ID = {};
 info = [];
-disp('ÕıÔÚ¶ÁÈ¡.vcfÎÄ¼ş...')
+disp('Reading. vcf file...')
 while 1
     tline = fgetl(data);
     if ~ischar(tline)
@@ -67,7 +67,7 @@ while 1
 end
 fclose(data);
 ge = [45 97 98 104];
-disp('.vcfÎÄ¼şÎÄ¼ş¶ÁÈ¡Íê³É£¡')
+disp('. vcf file read completeï¼')
 data = {SNP, snp, ID, info, ge, sampleName};
 save data.mat data
-disp('¼ÆËã½áÊø,data.matÎÄ¼şÒÑ±£´æÔÚµ±Ç°Â·¾¶£¡')
+disp('The calculation ends and the data.mat file is saved in the current pathï¼')
